@@ -1,7 +1,9 @@
 import React from "react";
 
+import { StyledLogin } from './StyledButton';
+
 const LoginButton = ({ callback }) => {
-  return <button onClick={callback}>Log in</button>;
+  return <StyledLogin onClick={callback}>Log in</StyledLogin>;
 }
 
 export default LoginButton;

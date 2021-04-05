@@ -1,7 +1,7 @@
 import React from "react";
-
+import { StyledRegister } from './StyledButton';
 const RegisterButton = ({ callback }) => {
-  return <button onClick={callback}>Create an account</button>;
+  return <StyledRegister onClick={callback}>Create an Account</StyledRegister>;
 };
 
 export default RegisterButton;
