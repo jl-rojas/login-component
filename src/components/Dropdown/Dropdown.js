@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FormattedMessage } from 'react-intl';
 import { Paragraph, Spacer, Button } from '@jp-olvera/jp-viaducto-components'
 
@@ -24,43 +24,38 @@ const Dropdown = ({ user, logout }) => {
   let Help = () => <img src={help} alt="" />;
   let Docs = () => <img src={docs} alt="" />;
 
-  //TODO: implementar esta función
-  // const clickOutsideHandler = (event) => {
-  // if (dropdownListRef.current.contains(event.target) || activatorRef.current.contains(event.target)) {
-  //         return
-  //     }
-  // setIsOpen(false)
-  // }
+  const clickOutsideHandler = (event) => {
+    if (dropdownListRef.current.contains(event.target) || activatorRef.current.contains(event.target)) {
+      return
+    }
+    setIsOpen(false)
+  }
 
-  //TODO: implementar el useEffect
-  // crear el listener mouseup
-  // limpiar el componente cuando se deje de usar
-  //TODO: Revisar: https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener
-  //TODO: Revisar: https://developer.mozilla.org/en-US/docs/Web/API/Event/type
-  /**
   useEffect(() => {
-        if (isOpen) {
-            if (dropdownListRef) {
-                dropdownListRef.current.querySelector('a').focus()
-            }
+    if (isOpen) {
+      if (dropdownListRef) {
+        // dropdownListRef.current.querySelector('button').focus();
+        // add some code
+      }
 
-            document.addEventListener('mouseup', clickOutsideHandler)
-        } else {
-            document.removeEventListener('mouseup', clickOutsideHandler)
-        }
+      document.addEventListener('mouseup', clickOutsideHandler)
+    } else {
+      document.removeEventListener('mouseup', clickOutsideHandler)
+    }
 
-        // clean up on unmount
-        return function cleanup () {
-            document.removeEventListener("mouseup", clickOutsideHandler)
-        }
-    }, [isOpen])
-   */
+    // clean up on unmount
+    return function cleanup() {
+      document.removeEventListener("mouseup", clickOutsideHandler)
+    }
+  }, [isOpen])
+
 
   return (
     <Wrapper>
       <Activator
         aria-haspopup="true"
         aria-controls="dropdown1"
+        aria-selected="true"
         data-testid="dropdown-activator"
         onClick={clickHandler}
         ref={activatorRef}

@@ -17,7 +17,6 @@ export const Activator = styled.button`
     margin: 0px;
     min-width: 171px;
     padding: 5px 0px;
-    outline: none;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;

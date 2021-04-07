@@ -15,6 +15,7 @@ const LogoutButton = ({ callback }) => {
       label={<FormattedMessage id="buttonLogout" />}
       icon={<SVG />}
       alt=""
+      onClick={callback}
       size="small"
       colors={colors}
     />
