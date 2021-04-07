@@ -72,13 +72,8 @@ export const ItemsContainer = styled.ul`
     .company-settings, .user-settings{
       display: flex;
       justify-content: space-between;
-      width: 80%;
-    }
-    
-    .user-settings{
       width: 100%;
     }
-
     .your-apps{
       padding: 20px 30px;
       border-bottom: 1px solid #EAEDF3;
@@ -97,9 +92,12 @@ export const ItemsContainer = styled.ul`
     }
 
     .apps-container {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      background: linear-gradient(270deg, rgba(102, 102, 102, 0.24) 0%, rgba(255, 255, 255, 0) 20%);
+      /* display: flex; */
+      /* flex-wrap: nowrap; */
+      /* overflow-x: auto; */
+      background: linear-gradient(270deg, rgba(102, 102, 102, 0.10) 0%, rgba(255, 255, 255, 0) 3%);
+      img {
+        pointer-events: none;
+      }
     }
 `;

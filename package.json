@@ -4,16 +4,20 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.4.0",
-    "@jp-olvera/jp-viaducto-components": "^1.0.17",
+    "@jp-olvera/jp-viaducto-components": "^1.0.20",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-horizontal-scrolling-menu": "^0.7.10",
     "react-intl": "^5.15.7",
     "react-scripts": "4.0.3",
     "styled-components": "^5.2.3",
     "web-vitals": "^1.1.1"
+  },
+  "peerDependencies": {
+    "react-horizontal-scrolling-menu": "^0.7.10"
   },
   "scripts": {
     "start": "react-scripts start",

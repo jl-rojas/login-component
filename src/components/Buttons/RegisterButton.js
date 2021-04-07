@@ -8,7 +8,8 @@ const RegisterButton = ({ callback }) => {
   let colors = {
     default: "#1665D8",
     hover: "",
-    click: ""
+    click: "",
+    text: "#fff"
   }
   return (
     <>
@@ -16,7 +17,6 @@ const RegisterButton = ({ callback }) => {
       <Spacer size="sm" direction="horizontal" />
     </>
   )
-  // return <StyledRegister onClick={callback}>Create an Account</StyledRegister>;
 };
 
 export default RegisterButton;
