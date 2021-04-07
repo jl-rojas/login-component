@@ -13,7 +13,6 @@ export const StyledRegister = styled.button`
   box-sizing: border-box;
   box-shadow: 0px 1px 1px rgba(22, 29, 37, 0.1), inset 0px 2px 0px rgba(255, 255, 255, 0.06);
   border-radius: 4px;
-  margin: 0 1.5rem;
   cursor: pointer;
   outline: none;
 `;
@@ -74,7 +73,6 @@ export const Span = styled.span`
 export const VR = styled.div`
   border-left: 1px solid #EAEDF3;
   height: 2.375rem;
-  margin: 0 1.5rem 0 0;
 `;
 
 export const Heading = styled.div`
@@ -83,13 +81,5 @@ export const Heading = styled.div`
   height: 4.375rem;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 6.5rem;
   box-shadow: 0 4px 2px -2px lightgray;
-`;
-
-export const Paragraph = styled.p`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  margin: 0 1.5rem;
 `;

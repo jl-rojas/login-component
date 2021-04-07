@@ -29,7 +29,6 @@ export const Activator = styled.button`
         object-fit: cover;
         height: 28px;
         width: 28px;
-        margin-left: 5px;
     }
 
     .activator-text{
@@ -38,18 +37,7 @@ export const Activator = styled.button`
     .activator-icon{
         height: 16px;
         margin-left: auto;
-        margin-right: 14px;
     }
-
-    /* &:after {
-        content: "";
-        border-bottom: 1px solid #000;
-        border-right: 1px solid #000;
-        height: 0.5em;
-        margin-left: 0.75em;
-        width: 0.5em;
-        transform: rotate(45deg);
-    } */
 `;
 
 export const ItemsContainer = styled.ul`
@@ -83,43 +71,36 @@ export const ItemsContainer = styled.ul`
     }
 
     .company-settings, .user-settings{
-      font-family: 'Roboto', sans-serif;
       display: flex;
       justify-content: space-between;
       width: 80%;
-      margin: 1rem 0;
-      p{
-        font-size: 0.875rem;
-        font-weight: 400;
-        line-height: 1.9rem;
-        margin: 0.5rem 0;
-        padding: 0;
-      }
     }
-
+    
     .user-settings{
       width: 100%;
     }
 
     .your-apps{
-        padding: 20px 30px;
-        border-bottom: 1px solid #EAEDF3;
+      padding: 20px 30px;
+      border-bottom: 1px solid #EAEDF3;
     }
 
     .settings {
-        padding: 20px 30px;
+      padding: 26px 30px;
     }
 
     .docs {
-        padding: 20px 30px;
-        background: #FBFBFD;
-        border-top: 1px solid #EAEDF3;
+      padding: 20px 30px;
+      background: #FBFBFD;
+      border-top: 1px solid #EAEDF3;
+      display: flex;
+      justify-content: space-between;
     }
 
     .apps-container {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        background: linear-gradient(270deg, rgba(102, 102, 102, 0.24) 0%, rgba(255, 255, 255, 0) 20%);
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      background: linear-gradient(270deg, rgba(102, 102, 102, 0.24) 0%, rgba(255, 255, 255, 0) 20%);
     }
 `;

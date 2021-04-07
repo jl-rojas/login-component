@@ -1,8 +1,9 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Spacer, Paragraph } from '@jp-olvera/jp-viaducto-components';
 
 import { LoginButton, RegisterButton } from './Buttons'
-import { Heading, Paragraph, VR } from './Buttons/StyledButton';
+import { Heading, VR } from './Buttons/StyledButton';
 import Dropdown from './Dropdown';
 
 const Login = () => {
@@ -13,20 +14,33 @@ const Login = () => {
   return isLoading ? <h1>Loading...</h1> :
     !isAuthenticated ?
       (
-        <Heading>
-          <Paragraph>Navigation Link</Paragraph>
-          <VR />
-          <LoginButton callback={loginWithRedirect} />
-          <RegisterButton callback={handleRegister} />
-        </Heading>
+        <>
+          <Spacer direction="vertical" size="xxl" />
+          <Heading>
+            <Paragraph size="sm">Navigation Link</Paragraph>
+            <Spacer direction="horizontal" size="md" />
+            <VR />
+            <Spacer direction="horizontal" size="md" />
+            <LoginButton callback={loginWithRedirect} />
+            <Spacer direction="horizontal" size="md" />
+            <RegisterButton callback={handleRegister} />
+            <Spacer direction="horizontal" size="md" />
+          </Heading>
+        </>
       )
       :
       (
-        <Heading>
-          <Paragraph>Navigation Link</Paragraph>
-          <VR />
-          <Dropdown logout={logout} user={user} />
-        </Heading>
+        <>
+          <Spacer direction="vertical" size="xxl" />
+          <Heading>
+            <Paragraph size="sm">Navigation Link</Paragraph>
+            <Spacer direction="horizontal" size="md" />
+            <VR />
+            <Spacer direction="horizontal" size="md" />
+            <Dropdown logout={logout} user={user} />
+            <Spacer direction="horizontal" size="md" />
+          </Heading>
+        </>
       )
 }
 

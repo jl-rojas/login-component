@@ -1,16 +1,23 @@
 import React from "react";
-
-import { StyledLogout, Span } from './StyledButton';
+import { FormattedMessage } from 'react-intl';
+import { Button } from '@jp-olvera/jp-viaducto-components'
 import Logout from './logout.svg'
 
 const LogoutButton = ({ callback }) => {
+  let colors = {
+    default: "transparent",
+    click: "transparent",
+    hover: "transparent",
+  };
+  let SVG = () => <img src={Logout} alt="" />;
   return (
-    <StyledLogout onClick={callback}>
-      Log out
-      <Span>
-        <img src={Logout} alt="" />
-      </Span>
-    </StyledLogout>
+    <Button
+      label={<FormattedMessage id="buttonLogout" />}
+      icon={<SVG />}
+      alt=""
+      size="small"
+      colors={colors}
+    />
   );
 };
 

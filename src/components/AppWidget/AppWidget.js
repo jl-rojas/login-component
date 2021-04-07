@@ -28,7 +28,7 @@ const AppWidget = ({ name, src, alt, disabled = false }) => {
   return (
     <Wrapper>
       <Logo src={src} alt={alt} disabled={disabled} />
-      <StyledSpan disabled={disabled}>{name}</StyledSpan>
+      {!disabled && <StyledSpan disabled={disabled}>{name}</StyledSpan>}
     </Wrapper>
   );
 };

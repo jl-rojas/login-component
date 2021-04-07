@@ -1,9 +1,14 @@
 import React from "react";
-
-import { StyledLogin } from './StyledButton';
+import { Button } from '@jp-olvera/jp-viaducto-components'
+import { FormattedMessage } from 'react-intl';
 
 const LoginButton = ({ callback }) => {
-  return <StyledLogin onClick={callback}>Log in</StyledLogin>;
+  let colors = {
+    default: "transparent",
+    hover: "transparent",
+    click: "transparent"
+  }
+  return <Button onClick={callback} colors={colors} label={<FormattedMessage id="buttonLogin" />} />;
 }
 
 export default LoginButton;

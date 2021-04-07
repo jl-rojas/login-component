@@ -1,20 +1,28 @@
 import React, { useState, useRef } from "react";
+import { FormattedMessage } from 'react-intl';
+import { Paragraph, Spacer, Button } from '@jp-olvera/jp-viaducto-components'
 
 import { Activator, Wrapper, ItemsContainer } from "./StyledDropdown";
-import { Paragraph } from '@jp-olvera/jp-viaducto-components'
 import { LogoutButton } from '../Buttons';
-import { Profile } from '../Buttons/StyledButton'
 import AppWidget from '../AppWidget';
 import Icon from './sorting.svg';
+import help from './help.svg';
+import docs from './docs.svg';
 
 const Dropdown = ({ user, logout }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const activatorRef = useRef(null)
-  const dropdownListRef = useRef(null)
-
+  const [isOpen, setIsOpen] = useState(false);
+  const activatorRef = useRef(null);
+  const dropdownListRef = useRef(null);
+  let colors = {
+    default: "transparent",
+    click: "transparent",
+    hover: "transparent",
+  };
   const clickHandler = () => {
     setIsOpen(!isOpen);
   };
+  let Help = () => <img src={help} alt="" />;
+  let Docs = () => <img src={docs} alt="" />;
 
   //TODO: implementar esta función
   // const clickOutsideHandler = (event) => {
@@ -50,9 +58,6 @@ const Dropdown = ({ user, logout }) => {
 
   return (
     <Wrapper>
-      <Paragraph>
-        asd
-      </Paragraph>
       <Activator
         aria-haspopup="true"
         aria-controls="dropdown1"
@@ -60,9 +65,17 @@ const Dropdown = ({ user, logout }) => {
         onClick={clickHandler}
         ref={activatorRef}
       >
+        <Spacer direction="horizontal" size="micro" />
         <img className="activator-img-profile" src={user.picture} alt="" />
-        <span className="activator-text">{user.given_name}</span>
+        <Paragraph
+          className="activator-text"
+          size="sm"
+          family="Roboto"
+        >
+          {user.given_name}
+        </Paragraph>
         <img className="activator-icon" src={Icon} alt="" />
+        <Spacer direction="horizontal" size="sm" />
       </Activator>
       <ItemsContainer
         id="dropdown1"
@@ -72,41 +85,99 @@ const Dropdown = ({ user, logout }) => {
         ref={dropdownListRef}
       >
         <div className="your-apps">
-          <p className="title">your apps</p>
+          <Paragraph
+            size="xs"
+            family="Roboto"
+            color="mutedGray"
+            bold="500"
+            lineHeight="1.125"
+          >
+            <FormattedMessage id="titleYourApps" />
+          </Paragraph>
+          <Spacer size="sm" direction='vertical' />
           <div className="apps-container">
             <AppWidget src="https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg" alt="" name="porkscore" />
             <AppWidget disabled src="https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg" alt="" name="porkscore" />
             <AppWidget src="https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg" alt="" name="porkscore" />
             <AppWidget src="https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg" alt="" name="porkscore" />
-
           </div>
         </div>
         <div className="settings">
           {user['http://localhost:3000/roles'][0] === 'Admin' && (
             <>
-              <h1 className="title">company settings</h1>
+              <Paragraph
+                size="xs"
+                family="Roboto"
+                color="mutedGray"
+                bold="500"
+                lineHeight="1.125"
+              >
+                <FormattedMessage id="titleCompanySettings" />
+              </Paragraph>
               <div className="company-settings">
                 <div>
-                  <p>User Management</p>
-                  <p>Team Members</p>
-                  <p>Roadmap</p>
+                  <Paragraph
+                    size="sm"
+                    family="Roboto"
+                    lineHeight="1.9"
+                  >
+                    <FormattedMessage id="optionUserManagement" />
+                  </Paragraph>
+                  <Paragraph
+                    size="sm"
+                    family="Roboto"
+                    lineHeight="1.9"
+                  >
+                    <FormattedMessage id="optionTeamMembers" />
+                  </Paragraph>
+                  <Paragraph
+                    size="sm"
+                    family="Roboto"
+                    lineHeight="1.9"
+                  >
+                    <FormattedMessage id="optionRoadmap" />
+                  </Paragraph>
                 </div>
                 <div>
-                  <p>Billing</p>
-                  <p>Plugins</p>
+                  <Paragraph
+                    size="sm"
+                    family="Roboto"
+                    lineHeight="1.9"
+                  >
+                    <FormattedMessage id="optionBilling" />
+                  </Paragraph>
+                  <Paragraph
+                    size="sm"
+                    family="Roboto"
+                    lineHeight="1.9"
+                  >
+                    <FormattedMessage id="optionPlugins" />
+                  </Paragraph>
                 </div>
               </div>
+              <Spacer size="md" />
             </>
           )}
-          <h1 className="title">user settings</h1>
+          <Paragraph
+            size="xs"
+            family="Roboto"
+            color="mutedGray"
+            bold="500"
+            lineHeight="1.125"
+          >
+            <FormattedMessage id="titleUserSettings" />
+          </Paragraph>
           <div className="user-settings">
-            <Profile>Your Profile</Profile>
+            <Button label={<FormattedMessage id="optionYourProfile" />} size="small" alt="" colors={colors} />
             <LogoutButton callback={logout} />
           </div>
         </div>
-        <div className="docs"></div>
+        <div className="docs">
+          <Button label={<FormattedMessage id="optionHelp" />} colors={colors} icon={<Help />} size="small" alt="" />
+          <Button label={<FormattedMessage id="optionDocs" />} colors={colors} icon={<Docs />} size="small" alt="" />
+        </div>
       </ItemsContainer>
-    </Wrapper>
+    </Wrapper >
   );
 };
 
