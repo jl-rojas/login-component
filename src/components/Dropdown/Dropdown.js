@@ -1,27 +1,32 @@
-import React, { useState, useRef, useEffect } from "react";
-import { FormattedMessage } from "react-intl";
+import React, { useState, useRef, useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
-import { Paragraph, Spacer, Button, Anchor } from "@jp-olvera/jp-viaducto-components";
-import { Activator, Wrapper, ItemsContainer } from "./StyledDropdown";
-import AppWidget from "../AppWidget";
-import Icon from "./sorting.svg";
-import help from "./help.svg";
-import docs from "./docs.svg";
-import Logout from './logout.svg'
+import {
+  Paragraph,
+  Spacer,
+  Button,
+  Anchor,
+} from '@jp-olvera/jp-viaducto-components';
+import { Activator, Wrapper, ItemsContainer } from './StyledDropdown';
+import AppWidget from '../AppWidget';
+import Icon from './sorting.svg';
+import help from './help.svg';
+import docs from './docs.svg';
+import Logout from './logout.svg';
 
 const Dropdown = ({ user, logout }) => {
   let SVG = () => (
     <>
-      <img src={Logout} alt="" style={{ margin: "0 0 0 8px" }} />
+      <img src={Logout} alt="" style={{ margin: '0 0 0 8px' }} />
     </>
   );
   const [isOpen, setIsOpen] = useState(false);
   const activatorRef = useRef(null);
   const dropdownListRef = useRef(null);
   let colors = {
-    default: "transparent",
-    click: "transparent",
-    hover: "transparent",
+    default: 'transparent',
+    click: 'transparent',
+    hover: 'transparent',
   };
   const clickHandler = () => {
     setIsOpen(!isOpen);
@@ -45,32 +50,32 @@ const Dropdown = ({ user, logout }) => {
         // dropdownListRef.current.querySelector('button').focus();
         // add some code
       }
-      document.addEventListener("mouseup", clickOutsideHandler);
+      document.addEventListener('mouseup', clickOutsideHandler);
     } else {
-      document.removeEventListener("mouseup", clickOutsideHandler);
+      document.removeEventListener('mouseup', clickOutsideHandler);
     }
     // clean up on unmount
     return function cleanup() {
-      document.removeEventListener("mouseup", clickOutsideHandler);
+      document.removeEventListener('mouseup', clickOutsideHandler);
     };
   }, [isOpen]);
 
   const appsList = [
     {
-      name: "porkscore",
-      src: "https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg",
+      name: 'porkscore',
+      src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
     },
     {
-      name: "porkscore",
-      src: "https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg",
+      name: 'porkscore',
+      src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
     },
     {
-      name: "porkscore",
-      src: "https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg",
+      name: 'porkscore',
+      src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
     },
     {
-      name: "porkscore",
-      src: "https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg",
+      name: 'porkscore',
+      src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
     },
   ];
 
@@ -89,7 +94,11 @@ const Dropdown = ({ user, logout }) => {
         ref={activatorRef}
       >
         <Spacer direction="horizontal" size="micro" />
-        <img className="activator-img-profile" src={user.picture} alt="" />
+        <img
+          className="activator-img-profile"
+          src={user.picture}
+          alt=""
+        />
         <Paragraph className="activator-text" size="sm" family="Roboto">
           {user.given_name}
         </Paragraph>
@@ -98,10 +107,10 @@ const Dropdown = ({ user, logout }) => {
       </Activator>
       <ItemsContainer
         id="dropdown1"
-        className={isOpen && "active"}
-        role="list"
+        className={isOpen && 'active'}
         data-testid="dropdown-itemList"
         ref={dropdownListRef}
+        aria-label="Configuraciones"
       >
         <div className="your-apps">
           <Paragraph
@@ -119,7 +128,7 @@ const Dropdown = ({ user, logout }) => {
           </div>
         </div>
         <div className="settings">
-          {user["http://localhost:3000/roles"][0] === "Admin" && (
+          {user['http://localhost:3000/roles'][0] === 'Admin' && (
             <>
               <Paragraph
                 size="xs"
@@ -132,22 +141,71 @@ const Dropdown = ({ user, logout }) => {
               </Paragraph>
               <div className="company-settings">
                 <div>
-                  <Paragraph size="sm" family="Roboto" lineHeight="1.9">
-                    <FormattedMessage id="optionUserManagement" />
+                  <Paragraph lineHeight="1.9">
+                    <Anchor
+                      href="https://www.google.com"
+                      target="_blank"
+                      color="dark"
+                      size="sm"
+                      family="Roboto"
+                      label={
+                        <FormattedMessage
+                          id="optionUserManagement"
+                          textCompo
+                        />
+                      }
+                    />
                   </Paragraph>
-                  <Paragraph size="sm" family="Roboto" lineHeight="1.9">
-                    <FormattedMessage id="optionTeamMembers" />
+                  <Paragraph lineHeight="1.9">
+                    <Anchor
+                      href="https://www.google.com"
+                      target="_blank"
+                      color="dark"
+                      size="sm"
+                      family="Roboto"
+                      label={
+                        <FormattedMessage id="optionTeamMembers" />
+                      }
+                    />
                   </Paragraph>
-                  <Paragraph size="sm" family="Roboto" lineHeight="1.9">
-                    <FormattedMessage id="optionRoadmap" />
+
+                  <Paragraph lineHeight="1.9">
+                    <Anchor
+                      href="https://www.google.com"
+                      target="_blank"
+                      color="dark"
+                      size="sm"
+                      family="Roboto"
+                      label={
+                        <FormattedMessage id="optionRoadmap" />
+                      }
+                    />
                   </Paragraph>
                 </div>
                 <div>
-                  <Paragraph size="sm" family="Roboto" lineHeight="1.9">
-                    <FormattedMessage id="optionBilling" />
+                  <Paragraph lineHeight="1.9">
+                    <Anchor
+                      href="https://www.google.com"
+                      target="_blank"
+                      color="dark"
+                      size="sm"
+                      family="Roboto"
+                      label={
+                        <FormattedMessage id="optionBilling" />
+                      }
+                    />
                   </Paragraph>
-                  <Paragraph size="sm" family="Roboto" lineHeight="1.9">
-                    <FormattedMessage id="optionPlugins" />
+                  <Paragraph lineHeight="1.9">
+                    <Anchor
+                      href="https://www.google.com"
+                      target="_blank"
+                      color="dark"
+                      size="sm"
+                      family="Roboto"
+                      label={
+                        <FormattedMessage id="optionPlugins" />
+                      }
+                    />
                   </Paragraph>
                 </div>
               </div>
@@ -167,26 +225,24 @@ const Dropdown = ({ user, logout }) => {
             <Spacer size="sm" direction="vertical" />
           </div>
           <div className="user-settings">
-            <div>
-              <Anchor
-                to="#"
-                label={<FormattedMessage id="optionYourProfile" />}
-                color="dark"
-                size="sm"
-                family="Roboto"
-              />
-            </div>
-            <div>
-              <Anchor
-                to="#"
-                onClick={logout}
-                icon={<SVG />}
-                label={<FormattedMessage id="buttonLogout" />}
-                color="dark"
-                size="sm"
-                family="Roboto"
-              />
-            </div>
+            <Anchor
+              label={<FormattedMessage id="optionYourProfile" />}
+              color="dark"
+              size="sm"
+              family="Roboto"
+              href="https://www.google.com"
+              target="_blank"
+            />
+
+            <Anchor
+              tabIndex="0"
+              onClick={logout}
+              icon={<SVG />}
+              label={<FormattedMessage id="buttonLogout" />}
+              color="dark"
+              size="sm"
+              family="Roboto"
+            />
           </div>
         </div>
         <div className="docs">
