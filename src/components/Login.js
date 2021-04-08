@@ -18,16 +18,11 @@ const Login = () => {
         axios({
           method: 'get',
           url: `${process.env.REACT_APP_SERVER_URL}/customer/subs`,
-          data: {
-            data: {
-              filter: {
-                customer_id: { is: user.sub }
-              }
-            }
+          params: {
+            customer_id: user.sub
           }
         })
           .then(({ data }) => {
-            console.log(data);
             setInfo(data);
           })
           .catch(error => {

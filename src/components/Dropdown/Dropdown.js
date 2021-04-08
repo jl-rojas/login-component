@@ -15,13 +15,13 @@ import docs from './docs.svg';
 import Logout from './logout.svg';
 
 const Dropdown = ({ user, logout, info }) => {
-  console.log(info)
   let SVG = () => (
     <>
       <img src={Logout} alt="" style={{ margin: '0 0 0 8px' }} />
     </>
   );
   const [isOpen, setIsOpen] = useState(false);
+  const [apps, setApps] = useState([]);
   const activatorRef = useRef(null);
   const dropdownListRef = useRef(null);
   let colors = {
@@ -44,7 +44,26 @@ const Dropdown = ({ user, logout, info }) => {
     }
     setIsOpen(false);
   };
-
+  useEffect(() => {
+    if (info !== null) {
+      const { addOns, subscriptions } = info;
+      var myApps = [];
+      for (const sub of subscriptions) {
+        for (const add of addOns) {
+          for (const sub_add of sub.subscription.addons) {
+            if (sub_add.id === add.id) {
+              myApps.push({
+                name: add.name,
+                src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
+                url: add.cf_site_url || 'https://www.google.com',
+              });
+            }
+          }
+        }
+      }
+      setApps(myApps);
+    }
+  }, [info]);
   useEffect(() => {
     if (isOpen) {
       if (dropdownListRef) {
@@ -61,27 +80,8 @@ const Dropdown = ({ user, logout, info }) => {
     };
   }, [isOpen]);
 
-  const appsList = [
-    {
-      name: 'porkscore',
-      src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
-    },
-    {
-      name: 'porkscore',
-      src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
-    },
-    {
-      name: 'porkscore',
-      src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
-    },
-    {
-      name: 'porkscore',
-      src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
-    },
-  ];
-
-  const menuItems = appsList.map((e, i) => (
-    <AppWidget name={e.name} src={e.src} alt="" key={`app-${i}`} />
+  const menuItems = apps.map((e, i) => (
+    <AppWidget url={e.url} name={e.name} src={e.src} alt="" key={`app-${i}`} />
   ));
 
   return (

@@ -23,10 +23,14 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin-right: 19px;
+  cursor: pointer;
 `;
-const AppWidget = ({ name, src, alt, disabled = false }) => {
+const AppWidget = ({ name, src, alt, disabled = false, url }) => {
+  const goTo = () => {
+    window.open(url, '_blank');
+  }
   return (
-    <Wrapper>
+    <Wrapper onClick={goTo}>
       <Logo src={src} alt={alt} disabled={disabled} />
       {!disabled && <StyledSpan disabled={disabled}>{name}</StyledSpan>}
     </Wrapper>
