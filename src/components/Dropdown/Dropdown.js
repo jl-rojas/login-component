@@ -14,7 +14,8 @@ import help from './help.svg';
 import docs from './docs.svg';
 import Logout from './logout.svg';
 
-const Dropdown = ({ user, logout }) => {
+const Dropdown = ({ user, logout, info }) => {
+  console.log(info)
   let SVG = () => (
     <>
       <img src={Logout} alt="" style={{ margin: '0 0 0 8px' }} />
