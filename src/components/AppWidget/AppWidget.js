@@ -30,7 +30,7 @@ const AppWidget = ({ name, src, alt, disabled = false, url }) => {
     window.open(url, '_blank');
   }
   return (
-    <Wrapper onClick={goTo}>
+    <Wrapper onClick={disabled ? () => { } : goTo}>
       <Logo src={src} alt={alt} disabled={disabled} />
       {!disabled && <StyledSpan disabled={disabled}>{name}</StyledSpan>}
     </Wrapper>

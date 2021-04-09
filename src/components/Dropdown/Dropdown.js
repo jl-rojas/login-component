@@ -46,7 +46,7 @@ const Dropdown = ({ user, logout, info }) => {
   };
   useEffect(() => {
     if (info !== null) {
-      const { addOns, subscriptions } = info;
+      const { addOns, subscriptions } = info.subscription;
       var myApps = [];
       for (const sub of subscriptions) {
         for (const add of addOns) {
@@ -56,11 +56,14 @@ const Dropdown = ({ user, logout, info }) => {
                 name: add.name,
                 src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
                 url: add.cf_site_url || 'https://www.google.com',
+                disabled: sub.subscription.status === "cancelled" && sub_add.amount > 0,
+                reason: sub.subscription.status === "cancelled" ? sub.subscription.cancel_reason : ''
               });
             }
           }
         }
       }
+
       setApps(myApps);
     }
   }, [info]);
@@ -81,7 +84,7 @@ const Dropdown = ({ user, logout, info }) => {
   }, [isOpen]);
 
   const menuItems = apps.map((e, i) => (
-    <AppWidget url={e.url} name={e.name} src={e.src} alt="" key={`app-${i}`} />
+    <AppWidget disabled={e.disabled} url={e.url} name={e.name} src={e.src} alt={e.reason} key={`app-${i}`} />
   ));
 
   return (
@@ -113,21 +116,26 @@ const Dropdown = ({ user, logout, info }) => {
         ref={dropdownListRef}
         aria-label="Configuraciones"
       >
-        <div className="your-apps">
-          <Paragraph
-            size="xs"
-            family="Roboto"
-            color="mutedGray"
-            bold="500"
-            lineHeight="1.125"
-          >
-            <FormattedMessage id="titleYourApps" />
-          </Paragraph>
-          <Spacer size="sm" direction="vertical" />
-          <div className="apps-container">
-            <ScrollMenu data={menuItems} />
-          </div>
-        </div>
+        {menuItems.length > 0 ?
+          (
+            <div className="your-apps">
+              <Paragraph
+                size="xs"
+                family="Roboto"
+                color="mutedGray"
+                bold="500"
+                lineHeight="1.125"
+              >
+                <FormattedMessage id="titleYourApps" />
+              </Paragraph>
+              <Spacer size="sm" direction="vertical" />
+              <div className="apps-container">
+                <ScrollMenu data={menuItems} />
+              </div>
+            </div>
+          ) :
+          null
+        }
         <div className="settings">
           {user['http://localhost:3000/roles'][0] === 'Admin' && (
             <>

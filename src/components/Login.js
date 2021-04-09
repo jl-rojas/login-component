@@ -8,23 +8,28 @@ import { Heading, VR } from './Buttons/StyledButton';
 import Dropdown from './Dropdown';
 
 const Login = () => {
-  const { loginWithRedirect, isAuthenticated, logout, isLoading, user } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, logout, isLoading, user, getAccessTokenSilently } = useAuth0();
   const [info, setInfo] = useState(null);
-  const [invoiceInfo, setInvoiceInfo] = useState(null);
   const handleRegister = () => { loginWithRedirect({ screen_hint: 'signup' }); }
-  const subs = (sub) =>
+  const subs = (sub, token) =>
     axios({
       method: 'get',
-      url: `http://localhost:7000/customer/subs`,
+      url: `https://nest-hnkuf.ondigitalocean.app/customer/subs`,
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
       params: {
         customer_id: sub
       }
     });
 
-  const invoice = (sub, subscription_id) =>
+  const invoice = (sub, subscription_id, token) =>
     axios({
       method: 'get',
-      url: `http://localhost:7000/customer/invoices/${sub}`,
+      url: `https://nest-hnkuf.ondigitalocean.app/customer/invoices/${sub}`,
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
       params: {
         subscription_id: subscription_id
       }
@@ -33,24 +38,28 @@ const Login = () => {
   useEffect(() => {
     const chargeBee = async () => {
       if (isAuthenticated) {
-        subs(user.sub)
+        const token = await getAccessTokenSilently();
+        subs(user.sub, token)
           .then(({ data }) => {
-            setInfo(data);
-            console.log(data.subscriptions[0].subscription.id);
-            invoice(user.sub, data.subscriptions[0].subscription.id)
+            invoice(user.sub, data.subscriptions[0].subscription.id, token)
               .then(resp => {
-                console.log(resp.data);
-                setInvoiceInfo(resp.data)
+                setInfo({
+                  subscription: data,
+                  invoices: resp.data
+                });
+              }).then(er => {
+                // console.log(er);
+                setInfo(null);
               })
           })
           .catch(error => {
-            console.log(error);
+            // console.log(error);
             setInfo(null);
           })
       }
     };
     chargeBee();
-  }, [isAuthenticated, user])
+  }, [isAuthenticated, user, getAccessTokenSilently])
   return isLoading ? <h1>Loading...</h1> :
     !isAuthenticated ?
       (

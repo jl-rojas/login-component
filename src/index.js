@@ -14,6 +14,7 @@ ReactDOM.render(
     clientId={process.env.REACT_APP_CLIENT_ID}
     domain={process.env.REACT_APP_DOMAIN}
     redirectUri={window.location.origin}
+    audience={"https://auth0-back"}
   >
     <React.StrictMode>
       <I18Provider>
