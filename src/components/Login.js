@@ -10,20 +10,38 @@ import Dropdown from './Dropdown';
 const Login = () => {
   const { loginWithRedirect, isAuthenticated, logout, isLoading, user } = useAuth0();
   const [info, setInfo] = useState(null);
+  const [invoiceInfo, setInvoiceInfo] = useState(null);
   const handleRegister = () => { loginWithRedirect({ screen_hint: 'signup' }); }
+  const subs = (sub) =>
+    axios({
+      method: 'get',
+      url: `http://localhost:7000/customer/subs`,
+      params: {
+        customer_id: sub
+      }
+    });
+
+  const invoice = (sub, subscription_id) =>
+    axios({
+      method: 'get',
+      url: `http://localhost:7000/customer/invoices/${sub}`,
+      params: {
+        subscription_id: subscription_id
+      }
+    });
 
   useEffect(() => {
     const chargeBee = async () => {
       if (isAuthenticated) {
-        axios({
-          method: 'get',
-          url: `${process.env.REACT_APP_SERVER_URL}/customer/subs`,
-          params: {
-            customer_id: user.sub
-          }
-        })
+        subs(user.sub)
           .then(({ data }) => {
             setInfo(data);
+            console.log(data.subscriptions[0].subscription.id);
+            invoice(user.sub, data.subscriptions[0].subscription.id)
+              .then(resp => {
+                console.log(resp.data);
+                setInvoiceInfo(resp.data)
+              })
           })
           .catch(error => {
             console.log(error);
