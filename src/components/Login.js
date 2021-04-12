@@ -7,6 +7,7 @@ import { LoginButton, RegisterButton } from './Buttons'
 import { Heading, VR } from './Buttons/StyledButton';
 import Dropdown from './Dropdown';
 
+
 const Login = () => {
   const { loginWithRedirect, isAuthenticated, logout, isLoading, user, getAccessTokenSilently } = useAuth0();
   const [info, setInfo] = useState(null);

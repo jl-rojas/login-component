@@ -2,8 +2,6 @@ import React from "react";
 import { FormattedMessage } from 'react-intl';
 import { Button, Spacer } from '@jp-olvera/jp-viaducto-components';
 
-// import { StyledRegister } from './StyledButton';
-
 const RegisterButton = ({ callback }) => {
   let colors = {
     default: "#1665D8",
