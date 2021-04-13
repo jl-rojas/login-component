@@ -124,7 +124,9 @@ const Dropdown = ({ user, logout, info }) => {
         }
         <div className="settings">
           {user['http://localhost:3000/roles'][0] === 'Admin' && (
-            <>
+            <div
+              data-cy="adset"
+            >
               <Paragraph
                 size="xs"
                 family="Roboto"
@@ -205,7 +207,7 @@ const Dropdown = ({ user, logout, info }) => {
                 </div>
               </div>
               <Spacer size="md" />
-            </>
+            </div>
           )}
           <div>
             <Paragraph
@@ -235,6 +237,7 @@ const Dropdown = ({ user, logout, info }) => {
               icon={<SVG />}
               label={<FormattedMessage id="buttonLogout" />}
               color="dark"
+              data-testid="logout"
               size="sm"
               family="Roboto"
             />

@@ -8,7 +8,7 @@ const LoginButton = ({ callback }) => {
     hover: "transparent",
     click: "transparent"
   }
-  return <Button onClick={callback} colors={colors} label={<FormattedMessage id="buttonLogin" />} />;
+  return <Button onClick={callback} colors={colors} data-cy="button-login" label={<FormattedMessage id="buttonLogin" />} />;
 }
 
 export default LoginButton;
