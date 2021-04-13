@@ -13,6 +13,7 @@ import Icon from './sorting.svg';
 import help from './help.svg';
 import docs from './docs.svg';
 import Logout from './logout.svg';
+import { getApps } from '../../utils/subscriptions'
 
 const Dropdown = ({ user, logout, info }) => {
   let SVG = () => (
@@ -47,24 +48,7 @@ const Dropdown = ({ user, logout, info }) => {
   useEffect(() => {
     if (info !== null) {
       const { addOns, subscriptions } = info.subscription;
-      var myApps = [];
-      for (const sub of subscriptions) {
-        for (const add of addOns) {
-          for (const sub_add of sub.subscription.addons) {
-            if (sub_add.id === add.id) {
-              myApps.push({
-                name: add.name,
-                src: 'https://i.mdel.net/i/db/2020/4/1332723/1332723-500w.jpg',
-                url: add.cf_site_url || 'https://www.google.com',
-                disabled: sub.subscription.status === "cancelled" && sub_add.amount > 0,
-                reason: sub.subscription.status === "cancelled" ? sub.subscription.cancel_reason : ''
-              });
-            }
-          }
-        }
-      }
-
-      setApps(myApps);
+      setApps(getApps({ subscriptions, addOns }));
     }
   }, [info]);
   useEffect(() => {
@@ -94,6 +78,7 @@ const Dropdown = ({ user, logout, info }) => {
         aria-controls="dropdown1"
         aria-selected="true"
         data-testid="dropdown-activator"
+        id="dropdown-activator"
         onClick={clickHandler}
         ref={activatorRef}
       >
@@ -104,7 +89,7 @@ const Dropdown = ({ user, logout, info }) => {
           alt=""
         />
         <Paragraph className="activator-text" size="sm" family="Roboto">
-          {user.given_name}
+          {user.given_name || user.name}
         </Paragraph>
         <img className="activator-icon" src={Icon} alt="" />
         <Spacer direction="horizontal" size="sm" />
@@ -113,6 +98,7 @@ const Dropdown = ({ user, logout, info }) => {
         id="dropdown1"
         className={isOpen && 'active'}
         data-testid="dropdown-itemList"
+        data-cy="dropdown-itemList"
         ref={dropdownListRef}
         aria-label="Configuraciones"
       >

@@ -4,18 +4,19 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.4.0",
+    "@cucumber/cucumber": "^7.1.0",
     "@jp-olvera/jp-viaducto-components": "^1.0.20",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-horizontal-scrolling-menu": "^0.7.10",
     "react-intl": "^5.15.7",
     "react-scripts": "4.0.3",
     "styled-components": "^5.2.3",
-    "web-vitals": "^1.1.1",
-    "axios": "^0.21.1"
+    "web-vitals": "^1.1.1"
   },
   "peerDependencies": {
     "react-horizontal-scrolling-menu": "^0.7.10"
@@ -25,7 +26,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cy": "./node_modules/.bin/cypress open"
+    "cy": "./node_modules/.bin/cypress open",
+    "test:cucumber": "cucumber-js ./features/**/*.feature",
+    "cy:run": "./node_modules/.bin/cypress run ."
   },
   "eslintConfig": {
     "extends": [
