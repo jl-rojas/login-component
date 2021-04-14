@@ -1,14 +1,11 @@
 {
-  "name": "login-component",
+  "name": "@jp-olvera/test-login-component",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "dependencies": {
     "@auth0/auth0-react": "^1.4.0",
-    "@cucumber/cucumber": "^7.1.0",
     "@jp-olvera/jp-viaducto-components": "^1.0.20",
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,9 +18,13 @@
   "peerDependencies": {
     "react-horizontal-scrolling-menu": "^0.7.10"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jl-rojas/login-component.git"
+  },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "SET NODE_ENV=production && npx babel src --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy": "./node_modules/.bin/cypress open",
@@ -49,6 +50,17 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-transform-react-jsx": "^7.13.12",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@cucumber/cucumber": "^7.1.0",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "cypress": "^7.0.1",
     "cypress-localstorage-commands": "^1.4.3",
     "dotenv": "^8.2.0",
