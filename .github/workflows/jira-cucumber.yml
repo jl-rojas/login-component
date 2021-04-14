@@ -14,12 +14,10 @@ jobs:
 
       - name: Run all tests
         run: npm run test:cucumber
-  curl:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
+
       - name: Print
         run: ls
+
       - name: curl
         uses: wei/curl@v1
         with:
