@@ -1,9 +1,5 @@
-const assert = require('assert');
-const { Given, Then } = require('@cucumber/cucumber');
+const { Given, Then, When } = require('@cucumber/cucumber');
 
-Given('We are developers', () => {
-  assert(1, 1);
-})
-Then('We are developers', () => {
-  assert(1, 1);
-})
+Given('We are developers', () => { });
+When('We make a push', () => { });
+Then('it publishes to Jira', () => { });

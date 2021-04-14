@@ -4,4 +4,5 @@ Feature: Test
 
   Scenario: Making curl request
     Given We are developers
-    Then We are developers
+    When We make a push
+    Then it publishes to Jira

@@ -1,0 +1,870 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "acceder-aplicaciones;un-usuario-de-aplicación-ha-olvidado-la-url-de-una-aplicación",
+        "keyword": "Scenario Outline",
+        "line": 3,
+        "name": "Un usuario de aplicación ha olvidado la url de una aplicación",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "no recuerdo la url de \"discourse\"",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "entro a la sección de \"aplicaciones\" en la página de marketing",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "puedo ser redirigido a \"tk.discourse.com\"",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "acceder-aplicaciones;un-usuario-de-aplicación-ha-olvidado-la-url-de-una-aplicación",
+        "keyword": "Scenario Outline",
+        "line": 3,
+        "name": "Un usuario de aplicación ha olvidado la url de una aplicación",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "no recuerdo la url de \"mi perfil\"",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "entro a la sección de \"Accounts\" en la página de marketing",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "puedo ser redirigido a \"editar perfil\"",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "acceder-aplicaciones;un-usuario-gestor-de-organización-ha-olvidado-la-url-de-una-aplicación",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Un usuario gestor de organización ha olvidado la url de una aplicación",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "no recuerdo la url de la sección administrativa",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "entro a la sección de configuración de la aplicación en la página de marketing",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "puedo ser redirigido a quitar acceso",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "eliminar a un usuario despedido de la empresa",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:31"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "acceder-aplicaciones;esconder-enlace-a-app-administrativa-a-usuarios-que-no-tienen-el-rol-gestor-de-organización",
+        "keyword": "Scenario",
+        "line": 21,
+        "name": "Esconder enlace a App Administrativa a usuarios que no tienen el rol gestor de organización",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 22,
+            "name": "que soy usuario gestor quiero limitar el acceso a un usuario básico",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "el usuario básico quiera ver la configuración de la organización",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "se esconde el enlace a la página administrativa",
+            "match": {
+              "location": "features\\step_definitions\\acceder-aplicaciones.js:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "acceder-aplicaciones",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "acceder aplicaciones",
+    "tags": [],
+    "uri": "features\\acceder-aplicaciones.feature"
+  },
+  {
+    "description": "    Los clientes de viaducto necesitan saber a qué cosas tienen acceso",
+    "elements": [
+      {
+        "description": "",
+        "id": "consultar-aplicaciones;un-cliente-no-ha-pagado-cierto-producto",
+        "keyword": "Scenario Outline",
+        "line": 4,
+        "name": "Un cliente no ha pagado cierto producto",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "no he pagado \"zendesk\"",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "abro el dropdown para ver mis aplicaciones",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "las aplicaciones \"zendesk\" están deshabilitadas",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "consultar-aplicaciones;un-cliente-no-ha-pagado-cierto-producto",
+        "keyword": "Scenario Outline",
+        "line": 4,
+        "name": "Un cliente no ha pagado cierto producto",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "no he pagado \"Full\"",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "abro el dropdown para ver mis aplicaciones",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "las aplicaciones \"all\" están deshabilitadas",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "consultar-aplicaciones;open-dropdown-to-see-my-apps-list",
+        "keyword": "Scenario Outline",
+        "line": 14,
+        "name": "Open dropdown to see my apps list",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "I have a \"Free\" subscription",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I open the dropdown to see my apps list",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "I should see \"discourse\"",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "consultar-aplicaciones;open-dropdown-to-see-my-apps-list",
+        "keyword": "Scenario Outline",
+        "line": 14,
+        "name": "Open dropdown to see my apps list",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 15,
+            "name": "I have a \"Full\" subscription",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I open the dropdown to see my apps list",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "I should see \"all\"",
+            "match": {
+              "location": "features\\step_definitions\\consultar-aplicaciones.js:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "consultar-aplicaciones",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "consultar aplicaciones",
+    "tags": [],
+    "uri": "features\\consultar-aplicaciones.feature"
+  },
+  {
+    "description": "  This is a test for Jira",
+    "elements": [
+      {
+        "description": "",
+        "id": "test;making-curl-request",
+        "keyword": "Scenario",
+        "line": 5,
+        "name": "Making curl request",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "We are developers",
+            "match": {
+              "location": "features\\step_definitions\\jira.js:3"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "We make a push",
+            "match": {
+              "location": "features\\step_definitions\\jira.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "it publishes to Jira",
+            "match": {
+              "location": "features\\step_definitions\\jira.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "test",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Test",
+    "tags": [],
+    "uri": "features\\test.feature"
+  },
+  {
+    "description": "    Los usuarios al ingresar a la página web necesitan ver diferentes elementos ui cuando han iniciado sesión o no",
+    "elements": [
+      {
+        "description": "",
+        "id": "visita-al-sitio-web;usuario-con-cuenta",
+        "keyword": "Scenario Outline",
+        "line": 3,
+        "name": "Usuario con cuenta",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "el usuario tiene cuenta con una sesión \"activa\"",
+            "match": {
+              "location": "features\\step_definitions\\visita-al-sitio-web.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "visita el sitio web",
+            "match": {
+              "location": "features\\step_definitions\\visita-al-sitio-web.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "el sitio web muestra \"dropdown\"",
+            "match": {
+              "location": "features\\step_definitions\\visita-al-sitio-web.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "visita-al-sitio-web;usuario-con-cuenta",
+        "keyword": "Scenario Outline",
+        "line": 3,
+        "name": "Usuario con cuenta",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "el usuario tiene cuenta con una sesión \"inactiva\"",
+            "match": {
+              "location": "features\\step_definitions\\visita-al-sitio-web.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "visita el sitio web",
+            "match": {
+              "location": "features\\step_definitions\\visita-al-sitio-web.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "el sitio web muestra \"login component\"",
+            "match": {
+              "location": "features\\step_definitions\\visita-al-sitio-web.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "visita-al-sitio-web;usuario-sin-cuenta-interesado-en-la-oferta-de-valor",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Usuario sin cuenta interesado en la oferta de valor",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 14,
+            "name": "soy una persona nueva en la plataforma",
+            "match": {
+              "location": "features\\step_definitions\\visita-al-sitio-web.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "ingreso al sitio web",
+            "match": {
+              "location": "features\\step_definitions\\visita-al-sitio-web.js:23"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "mostrar login component",
+            "match": {
+              "location": "features\\step_definitions\\visita-al-sitio-web.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "visita-al-sitio-web",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "visita al sitio web",
+    "tags": [],
+    "uri": "features\\visita-al-sitio-web.feature"
+  },
+  {
+    "description": "  Verify my apps in my subscription",
+    "elements": [
+      {
+        "description": "",
+        "id": "what-are-my-apps;my-subscription-is-free-access",
+        "keyword": "Scenario Outline",
+        "line": 4,
+        "name": "My subscription is Free Access",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I have \"Free\" access with \"active\" status",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:150"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I want to see my apps",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:159"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see the apps I have access to",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:163"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "what-are-my-apps;my-subscription-is-free-access",
+        "keyword": "Scenario Outline",
+        "line": 4,
+        "name": "My subscription is Free Access",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I have \"Free\" access with \"cancelled\" status",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:150"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I want to see my apps",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:159"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see the apps I have access to",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:163"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "what-are-my-apps;my-subscription-is-free-access",
+        "keyword": "Scenario Outline",
+        "line": 4,
+        "name": "My subscription is Free Access",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I have \"Full\" access with \"paid\" status",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:150"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I want to see my apps",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:159"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see the apps I have access to",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:163"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "what-are-my-apps;my-subscription-is-free-access",
+        "keyword": "Scenario Outline",
+        "line": 4,
+        "name": "My subscription is Free Access",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I have \"Full\" access with \"cancelled\" status",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:150"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I want to see my apps",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:159"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should see the apps I have access to",
+            "match": {
+              "location": "features\\step_definitions\\what-are-my-apps.js:163"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "what-are-my-apps",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "What are my apps",
+    "tags": [],
+    "uri": "features\\what-are-my-apps.feature"
+  }
+]
