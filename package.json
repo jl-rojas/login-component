@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy": "./node_modules/.bin/cypress open",
-    "test:cucumber": "cucumber-js ./features/**/*.feature -f json:./.github/workflows/results.json",
+    "test:cucumber": "cucumber-js ./features/**/*.feature -f json:./results.json",
     "cy:run": "./node_modules/.bin/cypress run ."
   },
   "eslintConfig": {
