@@ -15,9 +15,10 @@ jobs:
       - name: Run all tests
         run: npm run test:cucumber
   curl:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: curl
         uses: wei/curl@v1
         with:
-          args: "-X POST https://c4j.cucumber.io/ci/rest/api/results \ -H 'authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb20uc21hcnRiZWFyLmN1Y3VtYmVyIiwiYXVkIjoiY2kiLCJjb250ZXh0Ijp7ImxpdmluZ19kb2NfaWQiOjE4Njd9LCJpYXQiOjE2MTg0MTQzMjB9.OE_U75MEPkwYt_pZT45uMJVEE_OXp9r-fMimvyL7f7A' \ -H 'content-type: multipart/form-data' \ -F results_file=@results.json \ -F language=js"
+          args: "-X POST https://c4j.cucumber.io/ci/rest/api/results \ -H 'authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb20uc21hcnRiZWFyLmN1Y3VtYmVyIiwiYXVkIjoiY2kiLCJjb250ZXh0Ijp7ImxpdmluZ19kb2NfaWQiOjE4Njd9LCJpYXQiOjE2MTg0MTQzMjB9.OE_U75MEPkwYt_pZT45uMJVEE_OXp9r-fMimvyL7f7A' \ -H 'content-type: multipart/form-data' \ -F results_file=@./features/results.json \ -F language=js"
