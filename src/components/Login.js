@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
-import { Spacer, Paragraph } from '@jp-olvera/jp-viaducto-components';
+import { Spacer } from '@jp-olvera/jp-viaducto-components';
 
 import { LoginButton, RegisterButton } from './Buttons'
-import { Heading, VR } from './Buttons/StyledButton';
 import Dropdown from './Dropdown';
 
 
@@ -15,7 +14,7 @@ const Login = () => {
   const subs = (sub, token) =>
     axios({
       method: 'get',
-      url: `https://nest-hnkuf.ondigitalocean.app/customer/subs`,
+      url: `${process.env.REACT_APP_SERVER_URL}/customer/subs`,
       headers: {
         'Authorization': `Bearer ${token}`
       },
@@ -27,7 +26,7 @@ const Login = () => {
   const invoice = (sub, subscription_id, token) =>
     axios({
       method: 'get',
-      url: `https://nest-hnkuf.ondigitalocean.app/customer/invoices/${sub}`,
+      url: `${process.env.REACT_APP_SERVER_URL}/customer/invoices/${sub}`,
       headers: {
         'Authorization': `Bearer ${token}`
       },
@@ -61,35 +60,21 @@ const Login = () => {
     };
     chargeBee();
   }, [isAuthenticated, user, getAccessTokenSilently])
-  return isLoading ? <h1>Loading...</h1> :
+  return isLoading ? null :
     !isAuthenticated ?
       (
         <>
-          <Spacer direction="vertical" size="xxl" />
-          <Heading>
-            <Paragraph size="sm">Navigation Link</Paragraph>
-            <Spacer direction="horizontal" size="md" />
-            <VR />
-            <Spacer direction="horizontal" size="md" />
-            <LoginButton callback={loginWithRedirect} />
-            <Spacer direction="horizontal" size="md" />
-            <RegisterButton callback={handleRegister} />
-            <Spacer direction="horizontal" size="md" />
-          </Heading>
+          <LoginButton callback={loginWithRedirect} />
+          <Spacer direction="horizontal" size="md" />
+          <RegisterButton callback={handleRegister} />
+          <Spacer direction="horizontal" size="md" />
         </>
       )
       :
       (
         <>
-          <Spacer direction="vertical" size="xxl" />
-          <Heading>
-            <Paragraph size="sm">Navigation Link</Paragraph>
-            <Spacer direction="horizontal" size="md" />
-            <VR />
-            <Spacer direction="horizontal" size="md" />
-            <Dropdown logout={logout} user={user} info={info} />
-            <Spacer direction="horizontal" size="md" />
-          </Heading>
+          <Dropdown logout={logout} user={user} info={info} />
+          <Spacer direction="horizontal" size="md" />
         </>
       )
 }

@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 const LoginButton = ({ callback }) => {
   let colors = {
     default: 'transparent',
-    hover: 'black',
+    hover: 'transparent',
     click: 'transparent',
   };
   return (

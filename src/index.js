@@ -4,11 +4,6 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import { I18Provider } from './i18n';
 import Login from './components/Login';
 
-//TODO: Accesibilidad vamos bien
-//TODO: responsividad
-//TODO: hacer las redirecciones a los subdominios
-//TODO: montar en webflow
-
 // ReactDOM.render(
 //   <Auth0Provider
 //     clientId={process.env.REACT_APP_CLIENT_ID}

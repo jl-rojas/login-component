@@ -20,17 +20,3 @@ export const Span = styled.span`
   align-self: baseline;
   line-height: 2.75rem;
 `
-
-export const VR = styled.div`
-  border-left: 1px solid #EAEDF3;
-  height: 2.375rem;
-`;
-
-export const Heading = styled.div`
-  display: flex;
-  width: 100vw;
-  height: 4.375rem;
-  justify-content: flex-end;
-  align-items: center;
-  box-shadow: 0 4px 2px -2px lightgray;
-`;
